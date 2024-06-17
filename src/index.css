@@ -24,10 +24,15 @@ h1{
 }
 
 nav{
-  display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+   /*display: flex;
+   width: 80vw;
+   justify-content: flex-start;
+   padding: 1rem;*/
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: firebrick; */
 }
 
 a{
@@ -53,8 +58,12 @@ footer {
 }
 
 footer > img{
-  width: 200px;
-  margin: 0;
+   width: 200px;  
+   margin: 0;
+
+  /* width: 100px;
+  height: 100px;
+  margin: 10px */
 }
 footer > p{
   margin: 0;
@@ -76,7 +85,8 @@ form{
   flex-direction: column;
   align-items: center;
   width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
+  /* padding: 0.5rem 0.5rem 0 0.5rem; */
+  padding: 0.rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
 }
 
