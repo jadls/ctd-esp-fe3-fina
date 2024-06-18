@@ -10,10 +10,10 @@ const Detail = () => {
   const [doc, setDoc] = useState({})
   const params = useParams();
   // console.log(params.id)
-  const {docs} = useContextGlobal()
-  //console.log(docs[params.id-1])
-  const docDetail = docs[params.id-1]
-  console.log(docDetail)
+  const {state} = useContextGlobal()
+  //console.log(state.docs[params.id-1])
+  const docDetail = state.docs[params.id-1]
+  // console.log(docDetail)
  
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
@@ -23,7 +23,7 @@ const Detail = () => {
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
       <div className="cardOnly">
-        <img src={docsLogo} alt="DOCS-logo" className="cardOnly" />
+        <img src={docsLogo} alt="DOCS-logo" className="card" />
         <h3>Nombre: {docDetail.name}</h3>
         <h3>Email: {docDetail.email}</h3>
         <h3>Cel: {docDetail.phone}</h3>

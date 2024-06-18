@@ -36,7 +36,7 @@ const Form = () => {
         <div>
           <input
             type="text"
-            placeholder="full name"
+            placeholder="full name (lenght > 5)"
             value={info.nombre}
             onChange={(e) => setInfo({ ...info, nombre: e.target.value })}
             onClick={(i) => (setShowCard(false), setError(false))}
@@ -51,7 +51,7 @@ const Form = () => {
             onClick={(i) => (setShowCard(false), setError(false))}
           />
         </div>
-        <button>Enviar</button>
+        <button>Send</button>
       </form>
       {showCard && (
         <p style={{ color: "green", fontWeight: "bold", textAlign: "center" }}>

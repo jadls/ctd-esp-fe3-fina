@@ -92,13 +92,15 @@ form{
 
 .cardOnly{
   display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
+  justify-content: space-around;
+  gap: rem;
+  /* width: 20vw;
+  height: auto; */
   width: 20vw;
   height: auto;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 0.rem 0.5rem 0 0.5rem;
+  padding: 0.1rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
 }
 

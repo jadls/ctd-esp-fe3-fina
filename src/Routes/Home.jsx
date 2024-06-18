@@ -7,15 +7,15 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 const Home = () => {
   
-  const {docs} = useContextGlobal()
+  const {state} = useContextGlobal()
 
-  console.log(docs);
+  // console.log(state.docs);
   return (
     <main className="">
       <h1>Dentist List</h1>
       <div className="card-grid">
         {/* Aqui deberias renderizar las cards */}        
-        {docs.map((doc) => (                    
+        {state.docs.map((doc) => (                    
           <Card name={doc.name} username={doc.username} key={doc.id} id={doc.id}/>
         ))}
       </div>
