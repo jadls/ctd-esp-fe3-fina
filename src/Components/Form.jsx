@@ -36,7 +36,7 @@ const Form = () => {
         <div>
           <input
             type="text"
-            placeholder="nombre completo"
+            placeholder="full name"
             value={info.nombre}
             onChange={(e) => setInfo({ ...info, nombre: e.target.value })}
             onClick={(i) => (setShowCard(false), setError(false))}

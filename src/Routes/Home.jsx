@@ -12,7 +12,7 @@ const Home = () => {
   console.log(docs);
   return (
     <main className="">
-      <h1>Lista de Dentistas</h1>
+      <h1>Dentist List</h1>
       <div className="card-grid">
         {/* Aqui deberias renderizar las cards */}        
         {docs.map((doc) => (                    
