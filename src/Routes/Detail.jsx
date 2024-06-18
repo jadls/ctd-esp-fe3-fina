@@ -22,12 +22,12 @@ const Detail = () => {
       <h1>Info Dentista {params.id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <div className="card">
-        <img src={docsLogo} alt="DOCS-logo" className="card" />
-        <h4>Nombre: {docDetail.name}</h4>
-        <h4>Email: {docDetail.email}</h4>
-        <h4>Cel: {docDetail.phone}</h4>
-        <h4>Website: {docDetail.website}</h4>
+      <div className="cardOnly">
+        <img src={docsLogo} alt="DOCS-logo" className="cardOnly" />
+        <h3>Nombre: {docDetail.name}</h3>
+        <h3>Email: {docDetail.email}</h3>
+        <h3>Cel: {docDetail.phone}</h3>
+        <h3>Website: {docDetail.website}</h3>
       </div>
     </>
   )
