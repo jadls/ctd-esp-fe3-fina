@@ -18,7 +18,7 @@ const Navbar = () => {
       <Link to='/contact'><h4>Contact</h4></Link>
       <Link to='/favs'><h4>Favs</h4></Link>
       <Button handleClick={() => dispatch(
-        {type: "THEME", payload: state.darkTheme}
+        {type: "THEME", payload: state.lightTheme}
         )}
       >
         Change theme

@@ -11,7 +11,7 @@ function App() {
 
   const {state} = useContextGlobal()
   return (
-    <div className={state.darkTheme ? "dark" : "App"}>
+    <div className={state.lightTheme ? "App" : "dark"}>
       <Navbar />      
 
       <Routes>

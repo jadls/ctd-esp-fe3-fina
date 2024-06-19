@@ -11,10 +11,10 @@ const Card = ({ name, username, idDoc }) => {
 
   const { state, dispatch } = useContextGlobal();
 
-  console.log("favs: ")
-  console.log(state.favs)
-  console.log("docs[i]: ")
-  console.log(state.docs[idDoc - 1])
+  // console.log("favs: ")
+  // console.log(state.favs)
+  // console.log("docs[i]: ")
+  // console.log(state.docs[idDoc - 1])
   const existe = state.favs.some((item) => item.id === idDoc);  
   console.log(existe);
 

@@ -12,6 +12,11 @@ const lsFavs = localStorage.getItem("lsFavs")
   ? JSON.parse(localStorage.getItem("lsFavs"))
   : [];
 
+const lsLightTheme = localStorage.getItem("lsLightTheme")
+  ? JSON.parse(localStorage.getItem("lsLightTheme"))
+  : [];
+
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "GET_DOC":
@@ -24,13 +29,13 @@ const reducer = (state, action) => {
       );
       return { ...state, favs: filteredFavs };
     case "THEME":
-      console.log("darkTheme " + !state.darkTheme); //darktheme con el cambio q se hará a continuación
-      return { ...state, darkTheme: !state.darkTheme };
+      console.log("lightTheme " + !state.lightTheme); //lightTheme con el cambio q se hará a continuación
+      return { ...state, lightTheme: !state.lightTheme };
   }
 };
 
 const initialState = {
-  darkTheme: false,
+  lightTheme: lsLightTheme,
   favs: lsFavs,
   docs: [],
 };
@@ -50,6 +55,10 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("lsFavs", JSON.stringify(state.favs));
   }, [state.favs]);
+
+  useEffect(() => {
+    localStorage.setItem("lsLightTheme", JSON.stringify(state.lightTheme));
+  }, [state.lightTheme]);
 
   return (
     <ContextGlobal.Provider value={{ state, dispatch }}>
