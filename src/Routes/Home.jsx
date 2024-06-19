@@ -16,7 +16,7 @@ const Home = () => {
       <div className="card-grid">
         {/* Aqui deberias renderizar las cards */}        
         {state.docs.map((doc) => (                    
-          <Card name={doc.name} username={doc.username} key={doc.id} id={doc.id}/>
+          <Card name={doc.name} username={doc.username} key={doc.id} idDoc={doc.id}/>
         ))}
       </div>
     </main>

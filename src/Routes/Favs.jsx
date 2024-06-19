@@ -16,7 +16,7 @@ const Favs = () => {
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
         {state.favs.map((fav) => (                    
-          <Card name={fav.name} username={fav.username} key={fav.id} id={fav.id}/>
+          <Card name={fav.name} username={fav.username} key={fav.id} idDoc={fav.id}/>
         ))}
       </div>
     </>

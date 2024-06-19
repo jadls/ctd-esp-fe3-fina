@@ -1,46 +1,58 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 
 const ContextGlobal = createContext();
 
+const lsFavs = localStorage.getItem("lsFavs")
+  ? JSON.parse(localStorage.getItem("lsFavs"))
+  : [];
 
 const reducer = (state, action) => {
-  switch (action.type){
+  switch (action.type) {
     case "GET_DOC":
-      return {...state, docs: action.payload };
+      return { ...state, docs: action.payload };
     case "ADD_FAVS":
-      return {...state, favs: [...state.favs, action.payload]};
+      return { ...state, favs: [...state.favs, action.payload] };
     case "DELETE_FAVS":
       const filteredFavs = state.favs.filter(
         (item) => item.id != action.payload.id
-      )
-      return {...state, favs: filteredFavs};
+      );
+      return { ...state, favs: filteredFavs };
     case "THEME":
-      console.log("darkTheme "+ !state.darkTheme) //darktheme con el cambio hecho
-      return {...state, darkTheme: !state.darkTheme }    
+      console.log("darkTheme " + !state.darkTheme); //darktheme con el cambio q se hará a continuación
+      return { ...state, darkTheme: !state.darkTheme };
   }
-}
+};
 
 const initialState = {
   darkTheme: false,
-  favs: [],
-  docs: []
-}
+  favs: lsFavs,
+  docs: [],
+};
 
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   const url = "https://jsonplaceholder.typicode.com/users";
 
   useEffect(() => {
-    axios(url).then((res) => 
-    dispatch({ type:"GET_DOC", payload: res.data })
-  )
-    .catch((err) => console.log(err)) 
+    axios(url)
+      .then((res) => dispatch({ type: "GET_DOC", payload: res.data }))
+      .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("lsFavs", JSON.stringify(state.favs));
+  }, [state.favs]);
+
   return (
-    <ContextGlobal.Provider value={{state, dispatch}}>
+    <ContextGlobal.Provider value={{ state, dispatch }}>
       {children}
     </ContextGlobal.Provider>
   );
@@ -49,7 +61,5 @@ const ContextProvider = ({ children }) => {
 export default ContextProvider;
 
 export const useContextGlobal = () => {
-  return useContext(ContextGlobal)
-}
-
-
+  return useContext(ContextGlobal);
+};
