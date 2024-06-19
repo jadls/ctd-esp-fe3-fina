@@ -39,7 +39,7 @@ const Form = () => {
             placeholder="full name (lenght > 5)"
             value={info.nombre}
             onChange={(e) => setInfo({ ...info, nombre: e.target.value })}
-            onClick={(i) => (setShowCard(false), setError(false))}
+            onFocus={() => (setShowCard(false), setError(false))}
           />
         </div>
         <div>
@@ -48,7 +48,7 @@ const Form = () => {
             placeholder="email"
             value={info.email}
             onChange={(e) => setInfo({ ...info, email: e.target.value })}
-            onClick={(i) => (setShowCard(false), setError(false))}
+            onFocus={() => (setShowCard(false), setError(false))}
           />
         </div>
         <button>Send</button>

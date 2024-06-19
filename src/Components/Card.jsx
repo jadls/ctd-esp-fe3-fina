@@ -22,7 +22,7 @@ const Card = ({ name, username, id }) => {
         <img src={docsLogo} alt="DOCS-logo" className="card" />
         <h4>{name}</h4>
         <h4>{username}</h4>
-        {/* <h4>⭐</h4> */}
+        {/* <h4>⭐❤️</h4> */}
       </Link>
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
@@ -37,7 +37,7 @@ const Card = ({ name, username, id }) => {
             )
           }
         >
-         ❤️ 
+          ⭐
         </Button>
       ) : (
         <Button

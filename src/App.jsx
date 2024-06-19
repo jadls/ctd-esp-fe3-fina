@@ -5,10 +5,13 @@ import Detail from "./Routes/Detail"
 import Favs from "./Routes/Favs"
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
+import { useContextGlobal } from "./Components/utils/global.context";
 
 function App() {
+
+  const {state} = useContextGlobal()
   return (
-    <div className="App">
+    <div className={state.darkTheme ? "dark" : "App"}>
       <Navbar />      
 
       <Routes>

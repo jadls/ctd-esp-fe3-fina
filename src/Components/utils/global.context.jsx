@@ -14,16 +14,15 @@ const reducer = (state, action) => {
       const filteredFavs = state.favs.filter(
         (item) => item.id != action.payload.id
       )
-      console.log(action.payload)
-      console.log(filteredFavs)
       return {...state, favs: filteredFavs};
     case "THEME":
-      return {...state, theme: !theme}    
+      console.log("darkTheme "+ !state.darkTheme) //darktheme con el cambio hecho
+      return {...state, darkTheme: !state.darkTheme }    
   }
 }
 
 const initialState = {
-  theme: false,
+  darkTheme: false,
   favs: [],
   docs: []
 }
@@ -32,13 +31,10 @@ const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  // const [docs, setDocs] = useState([])
   const url = "https://jsonplaceholder.typicode.com/users";
 
   useEffect(() => {
-    axios(url)
-    // .then((res) => setDocs(res.data))
-    .then((res) => 
+    axios(url).then((res) => 
     dispatch({ type:"GET_DOC", payload: res.data })
   )
     .catch((err) => console.log(err)) 
