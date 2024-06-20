@@ -136,12 +136,12 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
+/* 
 Button{
   border-style: hidden;
   background-color: white ;
   font-size: large;
-}
+} */
 .dark{
   background-color: #12121296;
   color: white;
@@ -150,12 +150,21 @@ Button{
   color: white;
 }
 
-
-/* 
-.light-button {
-  background-color: #fff;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #e0d2d296;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
-
-.dark-button {
-  background-color: #12121296;
-} */
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
