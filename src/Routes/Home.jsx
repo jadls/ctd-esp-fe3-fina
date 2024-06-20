@@ -1,5 +1,5 @@
 import Card from '../Components/Card'
-import { useContextGlobal } from "../Components/utils/global.context";
+import { useDocsContext } from "../Components/utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -7,7 +7,7 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 const Home = () => {
   
-  const {state} = useContextGlobal()
+  const {state} = useDocsContext()
 
   // console.log(state.docs);
   return (

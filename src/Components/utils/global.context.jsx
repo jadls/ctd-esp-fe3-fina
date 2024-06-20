@@ -6,7 +6,7 @@ import {
   useReducer,
 } from "react";
 
-const ContextGlobal = createContext();
+const DocsContext = createContext();
 
 const lsFavs = localStorage.getItem("lsFavs")
   ? JSON.parse(localStorage.getItem("lsFavs"))
@@ -19,6 +19,8 @@ const lsLightTheme = localStorage.getItem("lsLightTheme")
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "GET_DETAILS":
+      return { ...state, details: action.payload}
     case "GET_DOC":
       return { ...state, docs: action.payload };
     case "ADD_FAVS":
@@ -31,6 +33,8 @@ const reducer = (state, action) => {
     case "THEME":
       console.log("lightTheme " + !state.lightTheme); //lightTheme con el cambio q se hará a continuación
       return { ...state, lightTheme: !state.lightTheme };
+    default:
+      throw new Error("Error al modificar el estado")
   }
 };
 
@@ -38,9 +42,10 @@ const initialState = {
   lightTheme: lsLightTheme,
   favs: lsFavs,
   docs: [],
+  details: {}
 };
 
-const ContextProvider = ({ children }) => {
+const Context = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -61,14 +66,14 @@ const ContextProvider = ({ children }) => {
   }, [state.lightTheme]);
 
   return (
-    <ContextGlobal.Provider value={{ state, dispatch }}>
+    <DocsContext.Provider value={{ state, dispatch }}>
       {children}
-    </ContextGlobal.Provider>
+    </DocsContext.Provider>
   );
 };
 
-export default ContextProvider;
+export default Context;
 
-export const useContextGlobal = () => {
-  return useContext(ContextGlobal);
+export const useDocsContext = () => {
+  return useContext(DocsContext);
 };

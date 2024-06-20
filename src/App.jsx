@@ -5,11 +5,11 @@ import Detail from "./Routes/Detail"
 import Favs from "./Routes/Favs"
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import { useContextGlobal } from "./Components/utils/global.context";
+import { useDocsContext } from "./Components/utils/global.context";
 
 function App() {
 
-  const {state} = useContextGlobal()
+  const {state} = useDocsContext()
   return (
     <div className={state.lightTheme ? "App" : "dark"}>
       <Navbar />      

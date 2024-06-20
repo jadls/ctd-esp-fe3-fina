@@ -1,25 +1,33 @@
 import docsLogo from "../../public/images/doctor.jpg";
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useContextGlobal } from '../Components/utils/global.context';
-
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDocsContext } from "../Components/utils/global.context";
+import Button from "../Components/Button";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
-  const [doc, setDoc] = useState({})
   const params = useParams();
-  // console.log(params.id)
-  const {state} = useContextGlobal()
-  //console.log(state.docs[params.id-1])
-  const docDetail = state.docs[params.id-1]
-  // console.log(docDetail)
+  const navigate = useNavigate();
+
+  const { state, dispatch } = useDocsContext();
+  const docDetail = state.details;
  
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
+  const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
+  const getDocDetail = async () => {
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+    dispatch({ type: "GET_DETAILS", payload: data });
+  };
+
+  useEffect(() => {
+    getDocDetail();
+  }, []);
 
   return (
     <>
-      <h1>Detail Dentist {params.id} </h1>
+      <h1>Detail Dentist {params.id}</h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
       <div className="cardOnly">
@@ -29,8 +37,11 @@ const Detail = () => {
         <h3>Cel: {docDetail.phone}</h3>
         <h3>Website: {docDetail.website}</h3>
       </div>
+      <div className="card-grid">
+        <Button handleClick={() => navigate(-1)}>Back</Button>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Detail
+export default Detail;

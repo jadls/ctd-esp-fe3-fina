@@ -137,6 +137,11 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+Button{
+  border-style: hidden;
+  background-color: white ;
+  font-size: large;
+}
 .dark{
   background-color: #12121296;
   color: white;
@@ -144,3 +149,13 @@ tr:nth-child(even) {
 .dark > a {
   color: white;
 }
+
+
+/* 
+.light-button {
+  background-color: #fff;
+}
+
+.dark-button {
+  background-color: #12121296;
+} */
