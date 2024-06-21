@@ -18,7 +18,7 @@ const Card = ({ name, username, idDoc }) => {
       {/* En cada card deberan mostrar en name - username y el id */}
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
       
-      <Link to={"/dentist/" + idDoc} className="card">
+      <Link to={"/dentist/" + idDoc} >
         <img src={docsLogo} alt="DOCS-logo" className="card" />
         <h4>{name}</h4>
         <h4>{username}</h4>
